@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Exercise4</string>
+    <string name="txt_name_activity_1">Activity 1</string>
+    <string name="txt_name_activity_2">Activity 2</string>
+    <string name="btn_go_to_activity_1">Go to activity 2</string>
+    <string name="btn_go_to_activity_2">Go to activity 1</string>
+    <string name="txt_sum_activity">Tổng của x.x và y.y là %f</string>
+    <string name="btn_sum_activity">Sum Activity (No Data)</string>
+    <string name="btn_caculator">Sum Activity (With Data)</string>
+    <string name="txt_name_sum_activity">Sum Activity</string>
+    <string name="btn_tabs_lable">Tabs Activity</string>
+</resources>
