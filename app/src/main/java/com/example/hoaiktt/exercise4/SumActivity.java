@@ -1,6 +1,7 @@
 package com.example.hoaiktt.exercise4;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +11,8 @@ import android.widget.TextView;
 public class SumActivity extends AppCompatActivity {
     private TextView mTvSum;
     private Button mBtnBack;
-    private double mX = 5.0,
-            mY = 3.0, mSum;
+    private double mX ,
+            mY , mSum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class SumActivity extends AppCompatActivity {
             mY = getInfoCaculator.getDouble("y");
         }
         mSum = sum(mX, mY);
-        mTvSum.setText(String.format(getResources().getString(R.string.txt_sum_activity), mSum));
+        mTvSum.setText(String.format(getResources().getString(R.string.txt_sum_activity), getDataRandomFromUri()));
         mBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,8 +34,27 @@ public class SumActivity extends AppCompatActivity {
             }
         });
     }
-
     private double sum(double x, double y) {
         return x + y;
+    }
+
+    private double getDataRandomFromUri() {
+        Uri mUri = getIntent().getData();
+        if (mUri != null) {
+            mX = getDoubleParam(mUri, "X");
+            mY = getDoubleParam(mUri, "Y");
+        }
+        return (sum(mX, mY));
+    }
+
+    private double getDoubleParam(Uri uri, String queryParamName) {
+        String rawValue = uri.getQueryParameter(queryParamName);
+        double value = 0.0;
+        try {
+            value = Double.parseDouble(rawValue);
+        } catch (NumberFormatException e) {
+           e.printStackTrace();
+        }
+        return value;
     }
 }
