@@ -9,4 +9,5 @@
     <string name="btn_caculator">Sum Activity (With Data)</string>
     <string name="txt_name_sum_activity">Sum Activity</string>
     <string name="btn_tabs_lable">Tabs Activity</string>
+    <string name="btn_back">Back</string>
 </resources>
